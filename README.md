@@ -1,67 +1,23 @@
-<!--
-   README.md template
+# Mars Science Laboratory (msl:) Mission Dictionary
 
-   In this template, values delimited by braces (e.g., "{value}") should be
-   replaced by the appropriate values for your namespace. The braces
-   should then be removed. Example values are provided as comments for
-   potentially mysterious cases.
--->
+The Mars Science Laboratory Mission dictionary (msl:) contains classes, attributes and rules specific to the MSL mission and its instruments.
 
-# {dictionary name} ({prefix:}) {"Discipline" or "Local"} Dictionary
-<!-- EXAMPLES
-   Spectral (sp:) Discipline Dictionary
-   DART Mission (dart:) Local Dictionary
--->
-
-The {dictionary name} dictionary provides classes and attributes for
-{brief functional description}
 
 ### Steward
-{steward name} ({steward GitHub handle}), {steward node}
-<!-- EXAMPLE
-     Anne Raugh (@acraugh), Small Bodies Node (SBN)
--->
+Jennifer Ward (@jennifergward), [PDS Geosciences Node](https://pds-geosciences.wustl.edu/)
 
 # Documentation
 
-<!-- The following assumes the complete documentation set exists. If it
-does not, edit the sentence and link accordingly. -->
-The User's Guide and detailed documentation for using this dictionary in
-label design and processing
-are located at https://pds-data-dictionaries.github.io/{repo id}.
-<!-- EXAMPLE
-     are located at https://pds-data-dictionaries.github.io/ldd-template.
--->
+The User's Guide for using this dictionary is located at https://pds-data-dictionaries.github.io/ldd-msl.
 
 # Latest Release
-
-<!-- Note that the Dictionaries Page link below won't look right on the
-     rendered page until you replace the braces and content with the
-     dictionary prefix.
-
-     EXAMPLE
-
-     [PDS Data Dictionaries Page](https://pds.nasa.gov/datastandards/dictionaries/#sp)
-
-     The GitHub link will exist once there is an official first release of
-     the dictionary (typically part of a system build) for the namespace. The
-     link is the same for all LDD repos and all builds.
-
-     The change log file is usually in the root directory of the repo, but
-     path information relative to root can be included if needed.
-
-     EXAMPLES
-
-       * Review the [Change Log] (ChangeLog.md)
-       * Review the [Change Log] (src/CHANGELOG.md)
--->     
-* Download dictionary files from the [PDS Data Dictionaries Page](https://pds.nasa.gov/datastandards/dictionaries/#{dictionary prefix})
+    
+* Download dictionary files from the [PDS Data Dictionaries Page](https://pds.nasa.gov/datastandards/dictionaries/#msl)
 * On [GitHub](../../releases/latest)
-* Review the [Change log]({change log file name})
+* Review the [Change log](CHANGELOG.md)
 
 # About This Repository
-<!-- The top-level directory structure and names must not change, but if
-you have more to say about any of these directories, edit away! -->
+
 In this repo you will find...
 * **[src](src)/** - The directory containing the managed *IngestLDD* file
  that defines this namespace. This is where changes to the namespace
@@ -92,7 +48,7 @@ GitHub repo URL.-->
 
 There is a common place to request enhancements and report problems for
 any PDS-curated dictionary - the [PDS4 Issue Repo](https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues/new/choose).
-Search for the \[{repo id}\] update request block and click the green
+Search for the \[ldd-msl\] update request block and click the green
 "Get Started" button.
 
 ## Contribute Code or documentation
@@ -108,12 +64,6 @@ for documentation and tutorials describing the procedures
 required to reserve a namespace,
 establish a new repo, and build your dictionary.
 
-<!-- NOTE
-
-     PDS needs a better suggestion than the following, but I'm hesitant
-     to point to my wiki and I don't see the information clearly
-     identified elsewhere...
--->
 If you need help creating your *IngestLDD* file, contact the [Dictionary Stewards Group](https://pds-data-dictionaries.github.io/teams/pds-dd-stewards.html). Documentation is in preparation.
 
 # For Dictionary Stewards
