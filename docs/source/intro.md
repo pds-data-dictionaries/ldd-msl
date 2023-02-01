@@ -1,1 +1,1 @@
-Short abstract for the namespace should go here
+The Mars Science Laboratory Mission Dictionary (msl) contains classes, attributes and rules specific to the MSL mission and its instruments.
