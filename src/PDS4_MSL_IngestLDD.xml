@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.sch"
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD 
   xmlns="http://pds.nasa.gov/pds4/pds/v1" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
-  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd">
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd">
   <name>Mars Science Laboratory Mission</name>
-  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <ldd_version_id>1.1.0.0</ldd_version_id>
   <dictionary_type>Mission</dictionary_type>
   <full_name>Jennifer Ward</full_name>
   <steward_id>geo</steward_id>
@@ -18,16 +18,17 @@
     The Mars Science Laboratory (MSL) mission dictionary contains classes and attributes specific to the MSL mission 
     and its instruments.
     
-    Mars Science Laboratory version 1.0.0.0 
-    PDS Build 1.17.0.0
+    Mars Science Laboratory version 1.1.0.0 
+    PDS Build 1.19.0.0
     LDDTool version 13.1.0
     
     Built with LDDTool -plJ  PDS4_MSL_IngestLDD.xml
      
     2023-02-01 JGW Initial version
+    2023-05-09 JGW Added product_version_id attribute and changed allowed spacecraft_clock_stop to be nillable
     
   </comment>
-  <last_modification_date_time>2023-02-01T11:51</last_modification_date_time>
+  <last_modification_date_time>2023-05-09T03:39</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <msl:MSL_Parameters>
@@ -35,6 +36,7 @@
           <msl:release_number> </>          
           <msl:product_type> </>
           <msl:mission_phase_name> </>
+          <msl:product_version_id> </>
           <msl:spacecraft_clock_start> </>
           <msl:spacecraft_clock_stop> </>
           <msl:spacecraft_clock_partition> </>
@@ -56,6 +58,7 @@
        mission_phase_name                      optional
        producer_institution_name               optional
        product_type                            optional
+       product_version_id                      optional
        release_number                          optional
        sol_number                              optional
        spacecraft_clock_partition              optional; should be used if SCLK does not include partition number
@@ -342,6 +345,18 @@
     </DD_Value_Domain>
   </DD_Attribute>
 
+  <DD_Attribute> <name>product_version_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.product_version_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>product_version_id identifies the version of an individual data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
   <DD_Attribute> <name>release_number</name>
     <version_id>1.0</version_id>
     <local_identifier>msl.release_number</local_identifier>
@@ -416,7 +431,7 @@
   <DD_Attribute> <name>spacecraft_clock_stop</name>
     <version_id>1.0</version_id>
     <local_identifier>msl.spacecraft_clock_stop</local_identifier>
-    <nillable_flag>false</nillable_flag>
+    <nillable_flag>true</nillable_flag>
     <submitter_name>Jennifer Ward</submitter_name>
     <definition>
       The spacecraft_clock_stop is the value of the spacecraft clock at the
@@ -526,6 +541,7 @@
           release_number         
           product_type
           mission_phase_name
+          product_version_id
           spacecraft_clock_start
           spacecraft_clock_stop
           spacecraft_clock_partition
@@ -558,6 +574,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>msl.mission_phase_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.product_version_id</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
