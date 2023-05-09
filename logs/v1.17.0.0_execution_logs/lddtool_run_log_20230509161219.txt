@@ -1,15 +1,16 @@
 
->>  INFO LDDTOOL Version: 14.1.2
->>  INFO IM Version Id: 1.19.0.0
+>>  INFO LDDTOOL Version: 14.2.4
+>>  INFO IM Version Id: 1.17.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.25
->>  INFO Date: Thu Feb 09 19:17:19 UTC 2023
->>  INFO PARENT_DIR: /tmp/lddtool-14.1.2
->>  INFO SCRIPT_DIR: /tmp/lddtool-14.1.2/bin
->>  INFO LIB_DIR: /tmp/lddtool-14.1.2/lib
+>>  INFO IM Label Version Id: 1.23
+>>  INFO Date: Tue May 09 16:12:22 UTC 2023
+>>  INFO PARENT_DIR: /tmp/lddtool-14.2.4
+>>  INFO SCRIPT_DIR: /tmp/lddtool-14.2.4/bin
+>>  INFO LIB_DIR: /tmp/lddtool-14.2.4/lib
 
 >>> INFO Init:  - Config.Properties Namespace Id Using:pds
 >>> INFO Init:  - LDD Dictionary_Type is Mission
+>>> INFO Attribute: <spacecraft_clock_stop> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <release_number> - The default minimum characters provided by the attribute's data type is being overridden with 4
 >>> INFO Attribute: <sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <spacecraft_clock_partition> - The default minimum value provided by the attribute's data type is being overridden with 1
@@ -32,18 +33,19 @@
 
 Input:
 
-     - IM Version: 1J00
+     - IM Version: 1H00
      - PDS4 Flag: true
      - LDD Flag: true
+     - IM Version: true
      - Export JSON Flag: true
 
      - Ingest LDD(s): /home/runner/work/ldd-msl/ldd-msl/src/PDS4_MSL_IngestLDD.xml
 
 Output:
 
-     - ./PDS4_MSL_1J00_1000.xsd
-     - ./PDS4_MSL_1J00_1000.sch
-     - ./PDS4_MSL_1J00_1000.xml
-     - ./PDS4_MSL_1J00_1000.JSON
+     - ./PDS4_MSL_1H00_1100.xsd
+     - ./PDS4_MSL_1H00_1100.sch
+     - ./PDS4_MSL_1H00_1100.xml
+     - ./PDS4_MSL_1H00_1100.JSON
 
 >>  INFO Exit(0)
