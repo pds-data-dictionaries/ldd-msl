@@ -1,5 +1,5 @@
 PDS4 Mars Science Laboratory Mission Dictionary User's Guide  
-2023-02-01
+2023-07-03
 Jennifer Ward
 
 # Introduction
@@ -37,12 +37,12 @@ The following is an example showing the use of this dictionary in a PDS4 label.
 ```
    <?xml version="1.0" encoding="UTF-8"?>
    <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-   <?xml-model href="https://pds.nasa.gov/pds4/mission/mro/v1/PDS4_MSL_1H00_1000.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+   <?xml-model href="https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1H00_1000.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
    <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
-       xmlns:mro="http://pds.nasa.gov/pds4/mission/msl/v1"
+       xmlns:msl="http://pds.nasa.gov/pds4/mission/msl/v1"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1           https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd
-                           http://pds.nasa.gov/pds4/mission/msl/v1   https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MRO_1H00_1000.xsd">
+                           http://pds.nasa.gov/pds4/mission/msl/v1   https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1H00_1000.xsd">
 ```
 
 The following is an example showing the location of the MSL dictionary classes and attributes in a PDS4 label.
@@ -56,6 +56,7 @@ The following is an example showing the location of the MSL dictionary classes a
             <msl:release_number>
             <msl:product_type>
             <msl:mission_phase_name>
+            <msl:product_version_id>            
             <msl:spacecraft_clock_start>
             <msl:spacecraft_clock_stop>
             <msl:spacecraft_clock_partition>
@@ -75,7 +76,7 @@ The namespace for the MSL Mission Dictionary is http://pds.nasa.gov/pds4/mission
 
 # Organization of Classes and Attributes
 
-See the [schematic](../../MSL_LDD_diagram.png) for a visual representation of the classes and attributes.
+See the [schematic](../../MSL_LDD_diagram.png) for a visual representation of the classes and attributes. TBD.
 
 Below is a list showing the hierarchy of classes in order of appearance in the PDS4 label. 
 See the Definitions section for complete definitions.
@@ -93,6 +94,7 @@ See the Definitions section for complete definitions.
 - release_number
 - product_type
 - mission_phase_name
+- product_version_id
 - spacecraft_clock_start
 - spacecraft_clock_stop
 - spacecraft_clock_partition
@@ -210,6 +212,13 @@ The product_type element identifies a group of data products within a collection
 - Maximum occurrences: 1
 - Nillable: No
 
+*product_version_id*
+The product_version_id element identifies the version of an individual data product.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
 *release_number*
 The release_number element is the identifier of a scheduled release of MSL data from PDS. The first MSL data release has release_number "0001". The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
 - PDS4 data type: ASCII_Short_String_Collapsed
@@ -231,7 +240,7 @@ The spacecraft_clock_partition provides the clock partition active for the space
 - PDS4 data type: ASCII_Integer
 - Minimum occurrences: 0
 - Maximum occurrences: 1
-- Nillable: No
+- Nillable: Yes
 - Minimum value: 1
 
 *spacecraft_clock_start*
