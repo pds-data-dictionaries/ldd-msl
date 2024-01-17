@@ -1,5 +1,5 @@
 PDS4 Mars Science Laboratory Mission Dictionary User's Guide  
-2023-07-03
+2024-01-17
 Jennifer Ward
 
 # Introduction
@@ -67,6 +67,13 @@ The following is an example showing the location of the MSL dictionary classes a
             <msl:stop_local_true_solar_time_sol>            
             <msl:active_flight_computer>
             <msl:producer_institution_name>
+          </msl:Observation_Information>
+          <msl:SAM_Parameters>
+            <msl:sam_experiment_id>
+            <msl:sam_experiment_description>
+            <msl:sam_gc_column_number>
+            <msl:sam_gc_column_description>
+          </msl:SAM_Parameters> 
         </msl:MSL_Parameters>
        </Mission_Area>
         ...         
@@ -83,12 +90,14 @@ See the Definitions section for complete definitions.
 
 - MSL_Parameters class
     - Observation_Information class
+    - SAM_Parameters class
 
 Below are lists showing the hierarchy of class attributes in order of appearance in the PDS4 label. 
 See the Definitions section for complete definitions.
 
 ## MSL_Parameters Class
 - Observation_Information
+- SAM_Parameters
 
 ## Observation_Information Class
 - release_number
@@ -102,9 +111,15 @@ See the Definitions section for complete definitions.
 - start_local_true_solar_time
 - start_local_true_solar_time_sol
 - stop_local_true_solar_time
-- stop_local_true_solar_time_sol>           
+- stop_local_true_solar_time_sol           
 - active_flight_computer
 - producer_institution_name
+
+## SAM_Parameters Class
+- sam_experiment_id
+- sam_experiment_description
+- sam_gc_column_number
+- sam_gc_column_description
 
 # Definitions
 
@@ -118,6 +133,11 @@ Classes (in alphabetical order)
 *Observation_Information*
 - The Observation_Information class provides information about a science observation.
 - Minimum occurrences: 1
+- Maximum occurrences: 1
+
+*SAM_Parameters*
+- The SAM Parameters class provides metadata specific to SAM observations.
+- Minimum occurrences: 0
 - Maximum occurrences: 1
 
 Attributes (in alphabetical order)
@@ -227,6 +247,45 @@ The release_number element is the identifier of a scheduled release of MSL data 
 - Nillable: No
 - Minimum characters: 4
 
+*sam_experiment_description*
+The sam_experiment_description element describes the type of SAM experiment that produced a data product.
+- PDS4 data type: ASCII_Short_String_Preserved
+- Minimum occurrences: 1
+- Maximum occurrences: 1
+- Nillable: No
+
+*sam_experiment_id*
+The sam_experiment_id element uniquely identifies the SAM experiment that produced a data product.
+- PDS4 data type: ASCII_Integer
+- Minimum occurrences: 1
+- Maximum occurrences: 1
+- Nillable: No
+- Minimum value: 0
+- Maximum value: 65536
+
+*sam_gc_column_description*
+The sam_gc_column_description element specifies the operational configuration of the Gas Chromatograph column used in an experiment.
+- PDS4 data type: ASCII_Short_String_Preserved
+- Minimum occurrences: 1
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*sam_gc_column_number*
+The sam_gc_column_number element gives the Gas Chromatograph column number (1 through 6) used in an experiment.
+- PDS4 data type: ASCII_Integer
+- Valid values:
+  - 1 - GC column 1.
+  - 2 - GC column 2.
+  - 3 - GC column 3.
+  - 4 - GC column 4.
+  - 5 - GC column 5.
+  - 6 - GC column 6.
+- Minimum occurrences: 1
+- Maximum occurrences: 1
+- Nillable: Yes
+- Minimum value: 1
+- Maximum value: 6
+    
 *sol_number*
 Sol_number is the number of the Mars day on which an observation was acquired. Landing day is Sol 0.
 - PDS4 data type: ASCII_Integer
@@ -259,7 +318,7 @@ The spacecraft_clock_stop is the value of the spacecraft clock at the end of an 
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Minimum occurrences: 0
 - Maximum occurrences: 1
-- Nillable: No
+- Nillable: Yes
 - Formation rule: [p/]dddddddddd[.fffffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally preceded by a clock partition number and forward slash, and optionally followed by a fractional value. If the fractional value is present, it must be separated from the whole number by a period, and may have up to 9 digits. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used.
 - Minimum characters: 1
 - Maximum characters: 19
